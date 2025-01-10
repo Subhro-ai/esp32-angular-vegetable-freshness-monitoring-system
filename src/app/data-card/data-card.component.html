@@ -1,0 +1,24 @@
+<!-- <div class="card">
+    <div class="data">
+        <h1>Temperature : </h1>
+        <h1>Humidity : </h1>
+        <h1>Heat Index : </h1>
+    </div>
+</div> -->
+<!-- app.component.html -->
+<div class="card">
+    <div *ngIf="temperature && humidity && heatIndex; else loading">
+        <p>Temperature: {{ temperature }}</p>
+        <p>Humidity: {{ humidity }}</p>
+        <p>Heat Index: {{ heatIndex }}</p>
+      </div>
+    
+      <ng-template #loading>
+        <h1>Loading data...</h1>
+      </ng-template>
+    
+      <div *ngIf="errorMessage">
+        <p style="color: red">{{ errorMessage }}</p>
+      </div>
+    
+</div>
