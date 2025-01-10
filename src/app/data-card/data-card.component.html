@@ -6,38 +6,37 @@
     </div>
 </div> -->
 <!-- app.component.html -->
-
-<div class="container-cards">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Boobies</h5>
-        </div>
-        <ul class="list-group list-group-flush" *ngIf="temperature && humidity && heatIndex; else loading">
-          <li class="list-group-item">Temperature: {{ temperature }} °C</li>
-          <li class="list-group-item">Humidity: {{ humidity }}</li>
-          <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
-        </ul>
-      </div>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Pussy</h5>
-        </div>
-        <ul class="list-group list-group-flush" *ngIf="temperature && humidity && heatIndex; else loading">
-          <li class="list-group-item">Temperature: {{ temperature }} °C</li>
-          <li class="list-group-item">Humidity: {{ humidity }}</li>
-          <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
-          <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar bg-info" style="width: 50%"></div>
-          </div>
-        </ul>
-        <ng-template #loading>
-            <div class="spinner-grow" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-          </ng-template>
-        
-          <div *ngIf="errorMessage">
-            <p style="color: red">{{ errorMessage }}</p>
-          </div>
+<ng-template #loading>
+    <div class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
     </div>
+</ng-template>
+    <div class="container-cards row">
+        <div class="card col-sm" style="width: 24rem;">
+            <div class="card-body">
+                <h5 class="card-title">Boobies</h5>
+            </div>
+            <ul class="list-group list-group-flush" *ngIf="temperature && humidity && heatIndex; else loading">
+                <li class="list-group-item">Temperature: {{ temperature }} °C</li>
+                <li class="list-group-item">Humidity: {{ humidity }}</li>
+                <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
+            </ul>
+        </div>
+    
+    
+    
+        <div class="card col-sm" style="width: 24rem;">
+            <div class="card-body">
+                <h5 class="card-title">Pussy</h5>
+            </div>
+            <ul class="list-group list-group-flush" *ngIf="temperature && humidity && heatIndex; else loading">
+                <li class="list-group-item">Temperature: {{ temperature }} °C</li>
+                <li class="list-group-item">Humidity: {{ humidity }}</li>
+                <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
+                <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar bg-info" style="width: 50%"></div>
+                </div>
+            </ul>
+        </div>
 </div>
