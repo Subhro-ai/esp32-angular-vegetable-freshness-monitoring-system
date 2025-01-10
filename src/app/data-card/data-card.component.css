@@ -1,13 +1,7 @@
-.card {
-    background-color: #F5ECD5;
-    width: 50vw;
-    height: 50vh;   
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 30px;
-    font-size: clamp(5vh, 2vw, 3rem);
-    font-family: "roboto";
-    font-weight: 500;
+.card{
+    margin: 20px;
 }
 
+.container-cards {
+    display: flex;
+}

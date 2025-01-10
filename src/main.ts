@@ -5,6 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    HttpClientModule  // <-- Add HttpClientModule here
+    HttpClientModule
   ]
 });
