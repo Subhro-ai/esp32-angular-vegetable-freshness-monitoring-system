@@ -12,14 +12,20 @@
     </div>
 </ng-template>
     <div class="container-cards row">
+
         <div class="card col-sm" style="width: 24rem;">
             <div class="card-body">
-                <h5 class="card-title">Potatoes</h5>
+                    <h5 class="card-title">Potatoes</h5>
+                    <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0"
+                        aria-valuemax="100" style="height: 20px">
+                    <div class="progress-bar bg-success" style="width: 50%"></div>
+            </div>
             </div>
             <ul class="list-group list-group-flush" *ngIf="temperature && humidity && heatIndex; else loading">
                 <li class="list-group-item">Temperature: {{ temperature }} °C</li>
                 <li class="list-group-item">Humidity: {{ humidity }}</li>
                 <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
+                
             </ul>
         </div>
     
@@ -27,16 +33,19 @@
     
         <div class="card col-sm" style="width: 24rem;">
             <div class="card-body">
-                <h5 class="card-title">Onions</h5>
+                    <h5 class="card-title">Onions</h5>
+                    <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0"
+                        aria-valuemax="100" style="height: 20px">
+                    <div class="progress-bar bg-success" style="width: 50%"></div>
+            </div>
             </div>
             <ul class="list-group list-group-flush" *ngIf="temperature && humidity && heatIndex; else loading">
                 <li class="list-group-item">Temperature: {{ temperature }} °C</li>
                 <li class="list-group-item">Humidity: {{ humidity }}</li>
                 <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
-                <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <div class="progress-bar bg-info" style="width: 50%"></div>
-                </div>
+                
             </ul>
         </div>
+
+        
 </div>
