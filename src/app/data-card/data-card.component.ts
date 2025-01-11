@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Esp32Service } from '../esp32.service';
-import { NgIf } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { item } from '../models/item';
 @Component({
   selector: 'app-data-card',
   standalone: true,
   providers: [Esp32Service], 
-  imports: [HttpClientModule, NgIf],
+  imports: [HttpClientModule, NgIf, NgFor],
   templateUrl: './data-card.component.html',
   styleUrl: './data-card.component.css'
 })
@@ -20,8 +20,8 @@ export class DataCardComponent {
 
   constructor(private esp32Service: Esp32Service) {}
 
-
-  @Input() newItem : item;
+  @Input() itemArray : item[] = [];
+  
 
   ngOnInit(): void {
     this.intervalId = setInterval(() => {
@@ -30,6 +30,8 @@ export class DataCardComponent {
           this.temperature = data.temperature;
           this.humidity = data.humidity;
           this.heatIndex = data["Heat Index"];
+          console.log(this.itemArray);
+          
         },
         error: (error) => {
           this.errorMessage = "Failed to fetch data from ESP32!";

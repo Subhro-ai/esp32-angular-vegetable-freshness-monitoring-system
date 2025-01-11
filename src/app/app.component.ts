@@ -13,8 +13,8 @@ import { item } from './models/item';
 })
 export class AppComponent {
   title = 'roomTemperature';
-  itemX : item;
-  getDate(data : item) {
-    this.itemX = data;
+  itemArray : item[] = [];
+  getData(data : item) {
+    this.itemArray.push(data);
   }
 }
