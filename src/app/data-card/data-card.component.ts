@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Esp32Service } from '../esp32.service';
 import { NgIf, NgFor } from '@angular/common';
 import { item } from '../models/item';
+import { Inject } from '@angular/core';
+import { ItemDetailsService } from '../item-details.service';
 @Component({
   selector: 'app-data-card',
   standalone: true,
@@ -17,10 +19,13 @@ export class DataCardComponent {
   heatIndex: string | undefined;
   errorMessage: string | undefined;
   intervalId: any;
+  itemArray :item[] = [];
+  itemService : ItemDetailsService = inject(ItemDetailsService);
+  constructor(private esp32Service: Esp32Service) {
+    this.itemArray = this.itemService.getItemArray();
+  }
 
-  constructor(private esp32Service: Esp32Service) {}
 
-  @Input() itemArray : item[] = [];
   
 
   ngOnInit(): void {
@@ -30,7 +35,7 @@ export class DataCardComponent {
           this.temperature = data.temperature;
           this.humidity = data.humidity;
           this.heatIndex = data["Heat Index"];
-          console.log(this.itemArray);
+          // console.log(this.itemArray);
           
         },
         error: (error) => {

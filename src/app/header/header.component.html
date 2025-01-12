@@ -4,7 +4,8 @@
         <ul class="navbar-nav">
           <li class="nav-item ">
             <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>ADD <i class="bi bi-plus-circle"></i></span></button>
-        </ul>
+            <!-- <button (click)="showDetail()">Show</button> -->
+          </ul>
     </div>
 </nav>
 
@@ -45,6 +46,17 @@
           </div>
           <button type="submit" class="btn btn-success" [disabled]="!itemForm.valid">Save changes</button>
         </form>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" #toastBootstrap>
+            <div class="toast-header">
+              <strong class="me-auto">Updated!</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              {{itemName}} has been added!
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
