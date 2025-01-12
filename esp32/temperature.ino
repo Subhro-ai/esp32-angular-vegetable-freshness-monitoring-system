@@ -6,8 +6,8 @@
 WebServer server(80);
 
 // Replace with your network credentials
-const char* ssid = "SriRam 4G";         // Your Wi-Fi SSID
-const char* password = "hawktuah"; // Your Wi-Fi Password
+const char* ssid = "";         // Your Wi-Fi SSID
+const char* password = ""; // Your Wi-Fi Password
 
 // Onboard LED pin (usually GPIO2 on most ESP32 boards)
 const int onboardLED = 2;
