@@ -13,6 +13,7 @@ export class Esp32Service {
   constructor(private http: HttpClient) {}
 
   // Method to get data from ESP32
+  
   getData(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
