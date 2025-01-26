@@ -17,7 +17,7 @@ new_data = new_data.rename(columns={
     "Avg. Humidity (%)": "Humidity",
     "CO? concentration(ppm)": "CO2",
     "Days to spoil": "Days"
-})
+})      
 new_data["Spoiled"] = new_data["Days"].apply(lambda x: "Yes" if x <= 0 else "No")
 new_data = new_data.drop(columns=["Sl  No."])
 
@@ -63,9 +63,13 @@ print(f"Accuracy for Spoiled Prediction: {accuracy * 100:.2f}%")
 import joblib
 
 # Save the regressor model
-joblib.dump(regressor, 'regressor_model.pkl')
+joblib.dump(regressor, 'ML/regressor_model.pkl')
 print("Regressor model saved as 'regressor_model.pkl'")
 
 # Save the classifier model
-joblib.dump(classifier, 'classifier_model.pkl')
+joblib.dump(classifier, 'ML/classifier_model.pkl')
 print("Classifier model saved as 'classifier_model.pkl'")
+
+import joblib
+joblib.dump(label_encoder_fruit, "ML/label_encoder_fruit.pkl")
+print("LabelEncoder saved as 'label_encoder.pkl'")
