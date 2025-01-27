@@ -70,6 +70,7 @@ print("Regressor model saved as 'regressor_model.pkl'")
 joblib.dump(classifier, 'ML/classifier_model.pkl')
 print("Classifier model saved as 'classifier_model.pkl'")
 
-import joblib
 joblib.dump(label_encoder_fruit, "ML/label_encoder_fruit.pkl")
 print("LabelEncoder saved as 'label_encoder.pkl'")
+joblib.dump(label_encoder_spoiled, "ML/label_encoder_spoiled.pkl")
+print("LabelEncoder saved as 'label_encoder_spoiled.pkl'")
