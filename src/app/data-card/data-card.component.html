@@ -20,7 +20,8 @@
 
             </ul>
         </div>
-
+        <button (click)="getPrediction()">Get Prediction</button>
+<h1 *ngIf="prediction">{{ prediction.days_to_spoil }}</h1>
     </div>
 
 

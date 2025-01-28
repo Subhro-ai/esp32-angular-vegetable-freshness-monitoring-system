@@ -1,10 +1,24 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import numpy as np
 
 # Initialize FastAPI app
 app = FastAPI()
+
+origins = [
+    "http://localhost:4200",  # Allow the frontend origin
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allow only specified origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
 
 # Load ML models and encoders
 model_days = joblib.load("regressor_model.pkl")
