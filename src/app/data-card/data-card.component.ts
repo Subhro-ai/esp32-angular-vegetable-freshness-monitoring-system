@@ -55,7 +55,7 @@ export class DataCardComponent {
   }
 
   getPrediction(): void {
-    console.log(this.itemArray[0].name, Number(this.humidity), Number(this.temperature));
+    console.log(this.itemArray[0].name, Number(this.temperature), Number(this.humidity));
     if (!this.itemArray.length || !this.humidity || !this.temperature) {
       this.errorMessage = 'Missing required data for prediction.';
       return;
