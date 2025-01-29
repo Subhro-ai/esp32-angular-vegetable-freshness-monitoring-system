@@ -21,6 +21,7 @@ export class DataCardComponent {
   errorMessage: string | undefined;
   intervalId: any;
   itemArray :item[] = [];
+  daysLeft : number = 0;
   itemService : ItemDetailsService = inject(ItemDetailsService);
   // predictionService : PredictionServiceService = inject(PredictionServiceService);
   
@@ -74,5 +75,6 @@ export class DataCardComponent {
         this.errorMessage = 'Failed to fetch prediction.';
       }
     });
+    
   }
   }

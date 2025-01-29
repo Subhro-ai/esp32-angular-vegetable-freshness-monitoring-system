@@ -19,9 +19,12 @@
                 <li class="list-group-item">Heat Index: {{ heatIndex }} °C</li>
 
             </ul>
+            <button type="button" class="btn btn-outline-secondary m-3" (click)="getPrediction()">Get Prediction</button>
+            <h1 class="text-center" *ngIf="prediction">{{ prediction.days_to_spoil }} Days Left</h1>
+            <div class="progress" role="progressbar" aria-label="Freshness" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
         </div>
-        <button (click)="getPrediction()">Get Prediction</button>
-<h1 *ngIf="prediction">{{ prediction.days_to_spoil }}</h1>
     </div>
 
 
