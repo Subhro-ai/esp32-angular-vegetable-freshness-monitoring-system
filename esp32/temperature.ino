@@ -73,6 +73,7 @@ void setup() {
   
 }
 
+
 void loop() {
   delay(2000);
   h = dht.readHumidity();
