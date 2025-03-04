@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Esp32Service {
 
-  private apiUrl = 'http://192.168.1.32/data'; // Replace with your ESP32 IP address
+  private apiUrl = 'http://192.168.1.29/data'; // Replace with your ESP32 IP address
 
   constructor(private http: HttpClient) {}
 
