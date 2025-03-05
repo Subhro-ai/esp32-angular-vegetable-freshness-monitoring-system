@@ -1,0 +1,15 @@
+nohup: ignoring input
+- Building...
+
+Initial chunk files | Names         |  Raw size
+styles.css          | styles        | 371.17 kB | 
+scripts.js          | scripts       | 106.42 kB | 
+polyfills.js        | polyfills     |  88.09 kB | 
+main.js             | main          |  19.61 kB | 
+
+                    | Initial total | 585.28 kB
+
+Application bundle generation complete. [53.294 seconds]
+
+Watch mode enabled. Watching for file changes...
+  ➜  Local:   http://localhost:4200/
