@@ -12,8 +12,7 @@ class SensorData(BaseModel):
     temperature: float
     humidity: float
     timestamp: str = datetime.datetime.now().isoformat()
-
-
+ 
 @router.post("/data")
 async def receive_sensor_data(data: SensorData):
     try:
