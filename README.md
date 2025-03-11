@@ -3,8 +3,8 @@
 🚀 **An IoT-based project using ESP32, FastAPI, and Angular to monitor vegetable/fruit freshness based on temperature, humidity, and time of storage.**
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system)
-![GitHub contributors](https://img.shields.io/github/contributors/yourusername/esp32-room-temperature)
-![GitHub stars](https://img.shields.io/github/stars/yourusername/esp32-room-temperature?style=social)
+![GitHub contributors](https://img.shields.io/github/contributors/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system)
+![GitHub stars](https://img.shields.io/github/stars/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system?style=social)
 
 ---
 
