@@ -11,7 +11,7 @@ class SensorDataRequest(BaseModel):
     sensor_id: str
     temperature: float
     humidity: float
-
+MAX_ROWS = 200
 # POST request to receive data from ESP32
 @router.post("/data")
 async def receive_sensor_data(data: SensorDataRequest):
@@ -25,6 +25,12 @@ async def receive_sensor_data(data: SensorDataRequest):
         )
         session.add(sensor_entry)
         session.commit()
+        row_count = session.query(SensorData).count()
+        if row_count > MAX_ROWS:
+            # ✅ Step 3: Delete the oldest row
+            oldest_row = session.query(SensorData).order_by(SensorData.timestamp.asc()).first()
+            session.delete(oldest_row)
+            session.commit()
         return {"status": "success", "message": "Data saved to database"}
     except Exception as e:
         session.rollback()
