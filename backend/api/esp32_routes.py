@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from database.db import SessionLocal
-from models.sensor_data import SensorData  # ✅ Correct import
+from models.sensor_data import SensorData 
 
 router = APIRouter()
 

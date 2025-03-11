@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # from database.db import init_db  # Database connection
 from contextlib import asynccontextmanager
+from api.latest_routes import router as latest_router
 from api.esp32_routes import router as esp32_router
 from database.db import init_db
 
@@ -33,6 +34,8 @@ app.add_middleware(
 )
 
 app.include_router(esp32_router, prefix="/esp32", tags=["ESP32 Data"])
+app.include_router(latest_router, prefix="/esp32", tags=["Latest Data"])
+
 
 # Run server with Uvicorn
 if __name__ == "__main__":
