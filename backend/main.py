@@ -4,14 +4,14 @@ from fastapi.middleware.cors import CORSMiddleware
 # from database.db import init_db  # Database connection
 from contextlib import asynccontextmanager
 from api.esp32_routes import router as esp32_router
-
+from database.db import init_db
 
 
 # Define lifespan event handler
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Starting up... Initializing database")
-    # await init_db()  # Initialize database connection
+    init_db()  # Initialize database connection
     yield  # App runs during this time
     print("Shutting down... Cleanup if needed")  # Optional cleanup
 
