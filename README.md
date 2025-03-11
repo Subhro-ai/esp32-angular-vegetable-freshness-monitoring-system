@@ -48,8 +48,8 @@ The ESP32 sends data every **5 seconds** to the FastAPI backend. The backend sto
 
 ### 🚀 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/esp32-room-temperature.git
-cd esp32-room-temperature
+git clone https://github.com/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system
+cd esp32-angular-vegetable-freshness-monitoring-system
 ```
 
 ### 💻 2. Setup Backend (FastAPI)
