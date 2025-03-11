@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from 
 # Database Configuration
 DB_USER = "postgres"
 DB_PASSWORD = "1234"
