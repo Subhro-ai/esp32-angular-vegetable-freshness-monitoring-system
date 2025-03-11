@@ -3,8 +3,8 @@
 🚀 **An IoT-based project using ESP32, FastAPI, and Angular to monitor vegetable/fruit freshness based on temperature, humidity, and time of storage.**
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system)
-![GitHub contributors](https://img.shields.io/github/contributors/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system)
-![GitHub stars](https://img.shields.io/github/stars/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system)
+![GitHub contributors](https://img.shields.io/github/contributors/yourusername/esp32-room-temperature)
+![GitHub stars](https://img.shields.io/github/stars/yourusername/esp32-room-temperature?style=social)
 
 ---
 
@@ -30,17 +30,25 @@ This project is designed to monitor the freshness of vegetables and fruits store
 - 💽 **Data Stored in PostgreSQL.**
 - ⚡ **Pydantic Schema** for clean API responses.
 - 📅 **Date Range Filtering for Historical Data.**
+- 🤖 **Future Integration with ML Model for Freshness Prediction.**
 
 ---
 
-## 📊 Data Flow
+## 🗺 Architecture Diagram
 ```text
 [ESP32] --> [FastAPI Backend] --> [PostgreSQL Database] --> [Angular Frontend]
+           ↘                ↘
+            [Prediction Model] --> [Predicted Days Left / Spoilage Status]
 ```
 
 The ESP32 sends data every **5 seconds** to the FastAPI backend. The backend stores the data and serves:
 - ✅ `/latest` API → Provides the latest temperature, humidity, and heat index.
 - ✅ `/history` API → Provides historical data with date filters.
+
+In future updates, the **prediction model** will calculate the estimated days until spoilage based on:
+- 📊 Temperature.
+- 💦 Humidity.
+- 🍅 Fruit/Vegetable Type.
 
 ---
 
@@ -48,7 +56,7 @@ The ESP32 sends data every **5 seconds** to the FastAPI backend. The backend sto
 
 ### 🚀 1. Clone the Repository
 ```bash
-git clone https://github.com/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system
+git clone https://github.com/subhro-ai/esp32-angular-vegetable-freshness-monitoring-system.git
 cd esp32-angular-vegetable-freshness-monitoring-system
 ```
 
