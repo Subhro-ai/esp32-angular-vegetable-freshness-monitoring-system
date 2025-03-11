@@ -35,4 +35,9 @@ export class DataCardComponent implements OnInit {
       }
     });
   }
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
 }
