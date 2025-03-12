@@ -1,63 +1,76 @@
+<!-- Navbar -->
 <nav class="navbar fixed-top bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar </a>
-        <ul class="navbar-nav">
-          <li class="nav-item ">
-            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>ADD <i class="bi bi-plus-circle"></i></span></button>
-            <!-- <button (click)="showDetail()">Show</button> -->
-          </ul>
-    </div>
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">Vegetable Freshness Monitoring</a>
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <span>ADD <i class="bi bi-plus-circle"></i></span>
+              </button>
+          </li>
+      </ul>
+  </div>
 </nav>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Item</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Form -->
-        <form #itemForm="ngForm" (ngSubmit) = "onSubmit(itemForm.value)" class="needsvalidation">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="item-name" name="itemName" ngModel required placeholder="Enter Item Name">
-            <label for="item-name">Item Name</label>
-            <div *ngIf="itemForm.submitted && !itemForm.controls['itemName']?.valid" class="text-danger">
-              Name is required.
-            </div>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Item</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <!-- Form -->
+      <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)" class="needs-validation">
+        <!-- Item Name -->
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="item-name" name="itemName" [(ngModel)]="itemName" required placeholder="Enter Item Name">
+          <label for="item-name">Item Name</label>
+          <div *ngIf="itemForm.submitted && !itemForm.controls['itemName']?.valid" class="text-danger">
+            Name is required.
           </div>
-          <div class="mb-3">
-            <div class="form-floating input-group">
-              <input type="number" class="form-control input-group-text bs" ngModel id="item-amount" name="itemAmount" placeholder="Enter Item Amount" min="0" required>
-              <span class="input-group-text" id="item-amount" >Kgs</span>
-              <label for="item-amount">Item Amount</label>
-            </div>
-            <div *ngIf="itemForm.submitted && !itemForm.controls['itemAmount']?.valid" class="text-danger">
-              Amount is required.
-            </div>
+        </div>
+
+        <!-- Item Amount -->
+        <div class="mb-3">
+          <div class="form-floating input-group">
+            <input type="number" class="form-control" id="item-amount" name="itemAmount" [(ngModel)]="itemWeight" placeholder="Enter Item Amount" min="0" required>
+            <span class="input-group-text">Kgs</span>
+            <label for="item-amount">Item Amount</label>
           </div>
-          <div class="form-floating mb-3">
-            <input type="datetime-local" class="form-control" name="itemDate" id="item-date" placeholder="Date of Item" ngModel required>
-            <label for="item-date">Date</label>
-            <div *ngIf="itemForm.submitted && !itemForm.controls['itemDate']?.valid" class="text-danger">
-              Date is required.
-            </div>
+          <div *ngIf="itemForm.submitted && !itemForm.controls['itemAmount']?.valid" class="text-danger">
+            Amount is required.
           </div>
-          <button type="submit" class="btn btn-success" [disabled]="!itemForm.valid">Save changes</button>
-        </form>
-        <div class="toast-container position-fixed bottom-0 end-0 p-3">
-          <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" #toastBootstrap>
-            <div class="toast-header">
-              <strong class="me-auto">Updated!</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              {{itemName}} has been added!
-            </div>
+        </div>
+
+        <!-- Date -->
+        <div class="form-floating mb-3">
+          <input type="datetime-local" class="form-control" name="itemDate" id="item-date" [(ngModel)]="itemDate" required>
+          <label for="item-date">Date</label>
+          <div *ngIf="itemForm.submitted && !itemForm.controls['itemDate']?.valid" class="text-danger">
+            Date is required.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success" [disabled]="!itemForm.valid">Save changes</button>
+      </form>
+
+      <!-- Success Toast -->
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" #toastBootstrap>
+          <div class="toast-header">
+            <strong class="me-auto">Success!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            {{ itemName }} has been added successfully!
           </div>
         </div>
       </div>
+
     </div>
   </div>
+</div>
 </div>

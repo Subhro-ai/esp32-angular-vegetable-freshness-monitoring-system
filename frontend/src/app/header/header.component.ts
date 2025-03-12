@@ -1,11 +1,10 @@
 import { NgIf } from '@angular/common';
-import { Component, ElementRef, inject, Output, ViewChild } from '@angular/core';
-import { FormsModule} from '@angular/forms';
-import { item } from '../models/item';
-import { EventEmitter } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Toast } from 'bootstrap';
-import { Inject } from '@angular/core';
-import { ItemDetailsService } from '../item-details.service';
+import { Item } from '../models/item';
+import { ItemService } from '../services/item.service'; 
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -14,27 +13,39 @@ import { ItemDetailsService } from '../item-details.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  itemName : string= "";
-  itemWeight : number= 0;
-  itemDate : any= null;
-  newItem : any;
-  // @Output() sendDataEvent = new EventEmitter<item>();
+  itemName: string = "";
+  itemWeight: number = 0;
+  itemDate: string = ""; 
+
   @ViewChild('toastBootstrap') toastRef!: ElementRef;
 
-  itemDetailService : ItemDetailsService = inject(ItemDetailsService);
 
-  onSubmit(form:any) : void {
-    const toast = new Toast(this.toastRef.nativeElement);
-    toast.show();
-    this.itemName = form.itemName;
-    this.itemDate = form.itemDate;
-    this.itemWeight = form.itemAmount;
-    this.newItem= {name : this.itemName, weight : this.itemWeight, date : this.itemDate};
-    // this.sendDataEvent.emit(this.newItem);
-    this.itemDetailService.putItem(this.newItem);
+  itemService: ItemService = inject(ItemService);
+
+
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      const newItem: Item = {
+        item_name: form.value.itemName,
+        weight: form.value.itemAmount,
+        date_added: form.value.itemDate 
+      };
+
+      this.itemService.addItem(newItem).subscribe({
+        next: (response) => {
+          console.log('Item added successfully:', response);
+          this.showToast();
+          form.reset();
+        },
+        error: (error) => {
+          console.error('Error adding item:', error);
+        }
+      });
+    }
   }
 
-  showDetail() : void {
-    this.itemDetailService.showDetails();
+  showToast(): void {
+    const toast = new Toast(this.toastRef.nativeElement);
+    toast.show();
   }
 }

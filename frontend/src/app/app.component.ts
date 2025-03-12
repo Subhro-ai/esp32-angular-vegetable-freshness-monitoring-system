@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DataCardComponent } from './data-card/data-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from "./header/header.component";
-import { item } from './models/item';
+import { Item } from './models/item';
 @Component({
   selector: 'app-root',
   standalone: true,

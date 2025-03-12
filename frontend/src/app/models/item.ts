@@ -1,5 +1,6 @@
-export interface item {
-    name : string;
+export interface Item {
+    item_name: string;
     weight: number;
-    date: Date;
-}
+    date_added: string; 
+  }
+  
