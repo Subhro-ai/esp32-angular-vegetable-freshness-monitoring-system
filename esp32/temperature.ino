@@ -7,7 +7,7 @@
 
 const char* ssid = "SriRam 4G";         // Your Wi-Fi SSID
 const char* password = "hawktuah";      // Your Wi-Fi Password
-const char* serverUrl = "http://192.168.1.7:8000/esp32/data"; // Replace with FastAPI backend URL
+const char* serverUrl = "http://192.168.1.21:8000/esp32/data"; // Replace with FastAPI backend URL
 
 DHT dht(DHTPIN, DHTTYPE);
 float h, t, hic;
@@ -47,7 +47,7 @@ void sendDataToServer() {
 
     // Create JSON payload
     String payload = "{\"sensor_id\":\"esp32_01\", \"temperature\":" + String(t) +
-                     ", \"humidity\":" + String(h) + ", \"heat_index\":" + String(hic) + "}";
+                 ", \"humidity\":" + String(h) + "}";
 
     Serial.println("Sending data to server: " + payload);
     
