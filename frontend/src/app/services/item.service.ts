@@ -6,11 +6,15 @@ import { Item } from '../models/item';
   providedIn: 'root'
 })
 export class ItemService {
-  private apiUrl = 'http://localhost:8000/items/store-item';
+  private apiUrl = 'http://localhost:8000/items';
 
   constructor(private http : HttpClient) { }
 
   addItem(itemData: Item): Observable<any> {
-    return this.http.post<any>(this.apiUrl, itemData);
+    return this.http.post<any>(`${this.apiUrl}/store-item`, itemData);
+  }
+
+  getItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.apiUrl}/get-items`);
   }
 }
